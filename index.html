@@ -1,295 +1,288 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dream Digit - High Speed Matka</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Dream Digit - Apps on Google Play</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --accent: #0062ff;
-            --accent-light: #00d4ff;
-            --bg: #f0f4f8;
-            --card: #ffffff;
-            --text-dark: #1a1a2e;
-            --text-gray: #6b7280;
+            --play-green: #01875f;
+            --text-main: #202124;
+            --text-sub: #5f6368;
+            --border: #dadce0;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            background: var(--bg);
-            color: var(--text-dark);
-            -webkit-tap-highlight-color: transparent;
+            background-color: #fff;
+            color: var(--text-main);
         }
 
-        /* Top Header Visual */
-        .hero-banner {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            height: 220px;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            z-index: -1;
-            border-radius: 0 0 40px 40px;
+        .navbar {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid var(--border);
         }
 
         .container {
-            max-width: 450px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px 20px;
+            padding: 20px;
         }
 
-        /* Profile Section */
-        .profile-card {
-            background: var(--card);
-            border-radius: 28px;
-            padding: 25px;
+        /* App Header Section */
+        .app-header {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .app-icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 20%;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+        }
+
+        .app-title-box h1 {
+            font-size: 24px;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .developer {
+            color: var(--play-green);
+            font-weight: 500;
+            margin-top: 4px;
+            font-size: 16px;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
+            margin: 25px 0;
+            padding: 0 10px;
         }
 
-        .img-container {
-            position: relative;
-            width: 110px;
-            height: 110px;
-            margin: -70px auto 15px;
+        .stat-column {
+            flex: 1;
+            border-right: 1px solid var(--border);
         }
 
-        .img-container img {
-            width: 100%;
-            height: 100%;
-            border-radius: 30px;
-            border: 5px solid var(--card);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            background: #fff;
+        .stat-column:last-child { border: none; }
+
+        .stat-value {
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
         }
 
-        .online-dot {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            width: 18px;
-            height: 18px;
-            background: #10b981;
-            border: 3px solid var(--card);
-            border-radius: 50%;
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-top: 4px;
         }
 
-        h1 { font-size: 26px; font-weight: 800; margin: 10px 0 5px; color: var(--text-dark); }
-        .subtitle { color: var(--accent); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Rapid Stats */
-        .grid-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-
-        .stat-item {
-            background: var(--card);
-            padding: 15px 5px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid #eef2f6;
-        }
-
-        .stat-item i { color: var(--accent); font-size: 18px; margin-bottom: 5px; display: block; }
-        .stat-item span { font-size: 11px; color: var(--text-gray); font-weight: 600; }
-        .stat-item b { display: block; font-size: 16px; color: var(--text-dark); }
-
-        /* Floating Install Button */
-        .action-holder {
-            position: sticky;
-            bottom: 25px;
-            z-index: 999;
-        }
-
-        .btn-install {
-            background: var(--text-dark);
+        /* The Famous Green Install Button */
+        .install-btn {
+            background-color: var(--play-green);
             color: white;
-            width: 100%;
-            padding: 20px;
             border: none;
-            border-radius: 22px;
-            font-size: 17px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
             cursor: pointer;
+            transition: background 0.2s;
         }
 
-        .btn-install:active { transform: scale(0.96); }
+        .install-btn:active { background-color: #016d4d; }
 
-        /* Section Styling */
-        .section-card {
-            background: var(--card);
-            border-radius: 24px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(0,0,0,0.03);
+        /* Screenshot Scroll */
+        .screenshots {
+            display: flex;
+            overflow-x: auto;
+            gap: 12px;
+            margin: 25px 0;
+            padding-bottom: 10px;
         }
 
-        .section-card h3 {
-            margin: 0 0 15px 0;
-            font-size: 17px;
+        .screenshots::-webkit-scrollbar { display: none; }
+
+        .ss-img {
+            height: 200px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        /* Sections */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .section-title h2 { font-size: 18px; font-weight: 500; }
+        .section-title i { color: var(--text-sub); }
+
+        .description {
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        /* Review Section */
+        .review-card {
+            margin-top: 20px;
+        }
+
+        .review-header {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            margin-bottom: 8px;
         }
 
-        .section-card h3 i { color: var(--accent); }
-
-        /* Review List */
-        .feedback {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #f3f4f6;
-        }
-
-        .feedback:last-child { border: 0; margin: 0; }
-
-        .f-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 15px;
-            background: #eef2ff;
-            color: var(--accent);
+        .user-dot {
+            width: 32px;
+            height: 32px;
+            background: #e8f0fe;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
+            font-size: 12px;
+            font-weight: bold;
         }
 
-        .f-content b { font-size: 14px; display: block; }
-        .f-content p { font-size: 13px; color: var(--text-gray); margin: 5px 0 0; line-height: 1.4; }
-        .stars { color: #fbbf24; font-size: 10px; }
+        .review-text {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
 
         footer {
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid var(--border);
             text-align: center;
-            padding: 30px 20px 100px;
-        }
-
-        .tg-join {
-            background: #0088cc;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
+            font-size: 12px;
+            color: var(--text-sub);
         }
     </style>
 </head>
 <body>
 
-<div class="hero-banner"></div>
-
-<div class="container">
-    <div class="profile-card">
-        <div class="img-container">
-            <img src="https://gogamex.fun/wp-content/uploads/2026/02/logo-8.png" alt="Logo">
-            <div class="online-dot"></div>
-        </div>
-        <h1>Dream Digit</h1>
-        <div class="subtitle">Official App 2026</div>
-        <div style="margin-top: 15px;">
-            <i class="fas fa-shield-alt" style="color:#10b981"></i> 
-            <span style="font-size: 12px; color: var(--text-gray)">Play Store Verified Security</span>
-        </div>
-    </div>
-
-    <div class="grid-stats">
-        <div class="stat-item">
-            <i class="fas fa-users"></i>
-            <span>TRUSTED BY</span>
-            <b>10L+ Users</b>
-        </div>
-        <div class="stat-item">
-            <i class="fas fa-star"></i>
-            <span>RATING</span>
-            <b>4.9/5.0</b>
-        </div>
-        <div class="stat-item">
-            <i class="fas fa-money-bill-transfer"></i>
-            <span>PAYOUT</span>
-            <b>Instant</b>
-        </div>
-    </div>
-
-    <div class="section-card">
-        <h3><i class="fas fa-rocket"></i> Fast Results</h3>
-        <p style="font-size: 14px; color: var(--text-gray); margin: 0;">
-            Kalyan, Main Bazar, Milan and Rajdhani—get results faster than any other app. Our automated systems update in real-time.
-        </p>
-    </div>
-
-    <div class="section-card">
-        <h3><i class="fas fa-comments"></i> Top Reviews</h3>
-        
-        <div class="feedback">
-            <div class="f-avatar">RK</div>
-            <div class="f-content">
-                <b>Rajesh Khatri</b>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>Sabse best app hai matka ke liye. Withdrawal 10 minute mein aa jata hai.</p>
-            </div>
-        </div>
-
-        <div class="feedback">
-            <div class="f-avatar">AD</div>
-            <div class="f-content">
-                <b>Anil Deshmukh</b>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>Main 1 saal se use kar raha hoon, koi issue nahi aaya. Genuine app.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="action-holder">
-        <button id="mainBtn" class="btn-install" onclick="initDownload()">
-            <i class="fas fa-download"></i> DOWNLOAD APK NOW
-        </button>
-    </div>
-
-    <footer>
-        <a href="https://telegram.me/+TRlJl628l-FkMWE9" class="tg-join">
-            <i class="fab fa-telegram-plane"></i> JOIN OFFICIAL TELEGRAM
-        </a>
-        <p style="font-size: 11px; color: var(--text-gray);">
-            Designed for secure gaming. &copy; 2026 Dream Digit Official Team.
-        </p>
-    </footer>
+<div class="navbar">
+    <img src="https://www.gstatic.com/android/market_images/web/play_prism_h_rev2.png" height="40" alt="Play Logo">
 </div>
 
+<div class="container">
+    <div class="app-header">
+        <img src="https://gogamex.fun/wp-content/uploads/2026/02/logo-8.png" class="app-icon" alt="App Icon">
+        <div class="app-title-box">
+            <h1>Dream Digit Matka</h1>
+            <div class="developer">Dream Digit Official Team</div>
+            <div style="font-size: 13px; color: var(--text-sub); margin-top: 5px;">Contains ads • In-app purchases</div>
+        </div>
+    </div>
+
+    <div class="stats-bar">
+        <div class="stat-column">
+            <div class="stat-value">4.9 <i class="fas fa-star" style="font-size: 10px;"></i></div>
+            <div class="stat-label">12K reviews</div>
+        </div>
+        <div class="stat-column">
+            <div class="stat-value">1M+</div>
+            <div class="stat-label">Downloads</div>
+        </div>
+        <div class="stat-column">
+            <div class="stat-value">E</div>
+            <div class="stat-label">Everyone</div>
+        </div>
+    </div>
+
+    <button id="installBtn" class="install-btn" onclick="startPlayInstall()">
+        Install
+    </button>
+
+    <div class="screenshots">
+        <img src="https://gogamex.fun/wp-content/uploads/2024/05/1-1.png" class="ss-img">
+        <img src="https://gogamex.fun/wp-content/uploads/2024/05/2-1.png" class="ss-img">
+        <img src="https://gogamex.fun/wp-content/uploads/2024/05/3.png" class="ss-img">
+        <img src="https://gogamex.fun/wp-content/uploads/2024/05/4.png" class="ss-img">
+    </div>
+
+    <div class="section-title">
+        <h2>About this app</h2>
+        <i class="fas fa-arrow-right"></i>
+    </div>
+    <p class="description">
+        Experience the fastest Matka results and live updates with the official Dream Digit app. Trusted by millions for Kalyan, Main Bazar, and Sridevi results. Features include instant notifications and secure platform access.
+    </p>
+
+    <div class="section-title">
+        <h2>Ratings and reviews</h2>
+        <i class="fas fa-arrow-right"></i>
+    </div>
+
+    <div class="review-card">
+        <div class="review-header">
+            <div class="user-dot">RK</div>
+            <span style="font-size: 14px; font-weight: 400;">Rajesh Khatri</span>
+        </div>
+        <div style="font-size: 12px; color: var(--text-sub); margin-bottom: 5px;">
+            <i class="fas fa-star" style="color: var(--play-green)"></i>
+            <i class="fas fa-star" style="color: var(--play-green)"></i>
+            <i class="fas fa-star" style="color: var(--play-green)"></i>
+            <i class="fas fa-star" style="color: var(--play-green)"></i>
+            <i class="fas fa-star" style="color: var(--play-green)"></i>
+            &nbsp; 14/02/26
+        </div>
+        <p class="review-text">Very fast results and very smooth interface. The best app I have ever used for matka updates.</p>
+    </div>
+
+</div>
+
+<footer>
+    Google Play and the Google Play logo are trademarks of Google LLC.
+    <br><br>
+    <a href="https://telegram.me/+TRlJl628l-FkMWE9" style="text-decoration: none; color: var(--play-green); font-weight: bold;">Privacy Policy</a>
+</footer>
+
 <script>
-    function initDownload() {
-        const btn = document.getElementById('mainBtn');
-        btn.innerHTML = '<i class="fas fa-sync fa-spin"></i> PREPARING SECURE LINK...';
-        btn.style.background = "#0062ff";
-        
+    function startPlayInstall() {
+        const btn = document.getElementById('installBtn');
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Pending...';
+        btn.style.background = "#e8f0fe";
+        btn.style.color = "#01875f";
+        btn.disabled = true;
+
         setTimeout(() => {
-            btn.innerHTML = '<i class="fas fa-arrow-down"></i> STARTING DOWNLOAD...';
-            window.location.href = "https://app.dreammdigit.com/apk/v2/skbApp.apk";
+            btn.innerHTML = 'Downloading... 14%';
             
             setTimeout(() => {
-                btn.innerHTML = "DOWNLOADED";
-                btn.style.background = "#10b981";
-            }, 3000);
+                btn.innerHTML = 'Installing...';
+                window.location.href = "https://app.dreammdigit.com/apk/v2/skbApp.apk";
+                
+                setTimeout(() => {
+                    btn.innerHTML = 'Open';
+                    btn.style.background = "white";
+                    btn.style.border = "1px solid #dadce0";
+                    btn.disabled = false;
+                }, 3000);
+            }, 2000);
         }, 1500);
     }
 </script>
