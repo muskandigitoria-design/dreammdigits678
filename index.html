@@ -22,9 +22,10 @@
             background-color: #fff;
             color: var(--text-dark);
             line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Navbar */
+        /* Header / Navbar */
         header {
             height: 64px;
             display: flex;
@@ -34,41 +35,46 @@
             position: sticky;
             top: 0;
             background: white;
-            z-index: 100;
+            z-index: 1000;
         }
 
-        .google-play-logo {
+        .gp-logo-wrapper {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 20px;
-            color: var(--text-light);
-            font-weight: 500;
+            cursor: pointer;
         }
 
-        /* Main Container */
+        .gp-logo-text {
+            font-size: 22px;
+            color: var(--text-light);
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        /* Main App Container */
         .main-container {
-            max-width: 800px;
+            max-width: 1024px;
             margin: 0 auto;
-            padding: 24px;
+            padding: 32px 24px;
         }
 
         /* App Hero Section */
         .app-hero {
             display: flex;
-            gap: 24px;
-            margin-bottom: 20px;
+            gap: 32px;
+            margin-bottom: 24px;
             align-items: flex-start;
         }
 
         .app-logo-box {
-            width: 120px;
-            height: 120px;
-            border-radius: 22%;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            width: 160px;
+            height: 160px;
+            border-radius: 20%;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
             overflow: hidden;
             flex-shrink: 0;
-            background: #f8f9fa;
+            background: #fff;
         }
 
         .app-logo-box img {
@@ -77,134 +83,206 @@
             object-fit: cover;
         }
 
+        .app-details {
+            flex: 1;
+        }
+
         .app-details h1 {
-            margin: 0;
-            font-size: 32px;
+            margin: 0 0 4px 0;
+            font-size: 42px;
             font-weight: 500;
             color: #202124;
+            letter-spacing: -0.5px;
         }
 
         .dev-name {
             color: var(--gp-green);
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 500;
-            margin: 4px 0;
+            margin-bottom: 8px;
+            cursor: pointer;
         }
 
+        .dev-name:hover { text-decoration: underline; }
+
         .tags {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--text-light);
         }
 
-        /* Stats */
+        /* Real Stats Strip */
         .app-stats {
             display: flex;
-            margin: 25px 0;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
+            margin: 32px 0;
+            border-bottom: 1px solid #e8eaed;
+            padding-bottom: 24px;
         }
 
         .stat-card {
-            padding: 0 20px;
+            padding: 0 32px;
             border-right: 1px solid var(--border-color);
             text-align: center;
+            min-width: 100px;
         }
 
+        .stat-card:first-child { padding-left: 0; }
         .stat-card:last-child { border: none; }
 
         .stat-value {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 3px;
+            gap: 4px;
         }
 
         .stat-label {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--text-light);
-            margin-top: 4px;
-            text-transform: uppercase;
+            margin-top: 6px;
         }
 
-        /* Install Button */
+        /* REAL INSTALL BUTTON */
+        .btn-container {
+            margin: 24px 0;
+        }
+
         .install-btn {
             background-color: var(--gp-green);
             color: white;
-            padding: 12px 0;
-            width: 100%;
-            max-width: 350px;
+            padding: 10px 48px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 15px;
-            display: block;
-            text-align: center;
-            transition: background 0.2s;
+            font-size: 16px;
+            display: inline-block;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(60,64,67,0.3);
         }
 
         .install-btn:hover {
             background-color: #00704f;
+            box-shadow: 0 2px 6px rgba(60,64,67,0.4);
         }
 
-        /* Reviews */
-        .review-section { margin-top: 40px; }
-        .review-row { padding: 16px 0; border-top: 1px solid #f1f1f1; }
-        .user-info { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
-        .user-avatar { width: 32px; height: 32px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 13px; }
-        .stars { color: var(--gp-green); font-size: 10px; margin-bottom: 4px; }
-
-        /* Footer Custom Credit */
-        footer {
-            padding: 50px 20px;
-            background: #f8f9fa;
-            border-top: 1px solid #eee;
-            text-align: center;
-            margin-top: 50px;
+        .install-btn:active {
+            transform: scale(0.96);
         }
 
-        .nexgroww-credit {
+        /* About & Description */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+
+        .section-header h2 {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .description {
             font-size: 14px;
             color: #5f6368;
-            margin-bottom: 10px;
+            line-height: 1.6;
+            margin-bottom: 40px;
         }
 
-        .nexgroww-credit a {
-            color: #0088cc; /* Telegram Blue */
-            text-decoration: none;
+        /* Reviews Section */
+        .review-row {
+            padding: 24px 0;
+            border-top: 1px solid #e8eaed;
+        }
+
+        .user-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .user-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e8f0fe;
+            color: #1a73e8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 700;
         }
 
-        .nexgroww-credit a:hover {
-            text-decoration: underline;
-        }
-
-        .google-disclaimer {
+        .rating-stars {
+            color: var(--gp-green);
             font-size: 11px;
-            color: #9aa0a6;
-            margin-top: 15px;
+            margin: 8px 0;
         }
 
-        @media (max-width: 600px) {
-            .app-hero { gap: 16px; }
-            .app-logo-box { width: 84px; height: 84px; }
-            .app-details h1 { font-size: 24px; }
-            .install-btn { max-width: 100%; }
+        /* Footer Custom */
+        footer {
+            background: #f1f3f4;
+            padding: 60px 24px;
+            margin-top: 60px;
+            text-align: center;
+            border-top: 1px solid #dadce0;
+        }
+
+        .nexgrow-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .nexgrow-box a {
+            color: #0088cc;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .copy-text {
+            font-size: 12px;
+            color: #70757a;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .app-hero { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+            .app-logo-box { width: 96px; height: 96px; }
+            .app-details h1 { font-size: 28px; }
+            .app-stats { overflow-x: auto; justify-content: space-between; }
+            .stat-card { padding: 0 15px; border: none; }
+            .install-btn { width: 100%; box-sizing: border-box; }
+            .main-container { padding: 20px 16px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="google-play-logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" width="22" alt="Play Store">
-        Google Play
+    <div class="gp-logo-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" width="28" alt="Play Store">
+        <span class="gp-logo-text">Google Play</span>
     </div>
 </header>
 
 <div class="main-container">
-    <div class="app-hero">
+    <section class="app-hero">
         <div class="app-logo-box">
             <img src="https://gogamex.fun/wp-content/uploads/2026/02/logo-8.png" alt="Dream Digit Logo">
         </div>
@@ -212,59 +290,79 @@
             <h1>DREAM DIGIT MATKA</h1>
             <div class="dev-name">Dream Digit Official</div>
             <div class="tags">Contains ads · In-app purchases</div>
-        </div>
-    </div>
-
-    <div class="app-stats">
-        <div class="stat-card">
-            <div class="stat-value">4.8 <i class="fas fa-star" style="font-size: 9px;"></i></div>
-            <div class="stat-label">24K reviews</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value">1M+</div>
-            <div class="stat-label">Downloads</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value"><i class="fas fa-shield-alt"></i></div>
-            <div class="stat-label">Verified</div>
-        </div>
-    </div>
-
-    <a href="https://app.dreammdigit.com/apk/v2/skbApp.apk" class="install-btn">Install</a>
-
-    <div style="margin-top: 40px;">
-        <h3 style="font-weight: 500; font-size: 18px;">About this app</h3>
-        <p style="color: var(--text-light); font-size: 14px; line-height: 1.6;">
-            India's most trusted and fastest Matka result app. Dream Digit provides you with the best gaming experience, 24/7 customer support, and instant withdrawal facilities.
-        </p>
-    </div>
-
-    <div class="review-section">
-        <h3 style="font-weight: 500; font-size: 18px;">Ratings and reviews</h3>
-        
-        <div class="review-row">
-            <div class="user-info">
-                <div class="user-avatar" style="background: #673ab7;">A</div>
-                <span style="font-size: 14px;">Arjun Mehta</span>
+            
+            <div class="app-stats">
+                <div class="stat-card">
+                    <div class="stat-value">4.8 <i class="fas fa-star" style="font-size: 10px;"></i></div>
+                    <div class="stat-label">24K reviews</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1M+</div>
+                    <div class="stat-label">Downloads</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value"><img src="https://www.gstatic.com/android/market_images/web/pwa_badge_3_plus.png" width="16" style="margin-right:4px"> 3+</div>
+                    <div class="stat-label">Rated for 3+</div>
+                </div>
             </div>
-            <div class="stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+
+            <div class="btn-container">
+                <a href="https://app.dreammdigit.com/apk/v2/skbApp.apk" class="install-btn">Install</a>
             </div>
-            <p style="font-size: 14px; color: #444; margin: 0;">Super fast results and very clean UI. Loved it!</p>
         </div>
+    </section>
+
+    <div class="section-header">
+        <h2>About this app</h2>
+        <i class="fas fa-arrow-right" style="color: #5f6368;"></i>
+    </div>
+    <div class="description">
+        Experience the thrill of fast results and accurate guessing with India's most trusted Matka app. Dream Digit Matka offers a seamless, secure, and user-friendly platform for all your gaming needs. With 24/7 customer support and lightning-fast updates, we ensure you stay ahead in the game.
+    </div>
+
+    <div class="section-header">
+        <h2>Ratings and reviews</h2>
+        <i class="fas fa-arrow-right" style="color: #5f6368;"></i>
+    </div>
+
+    <div class="review-row">
+        <div class="user-meta">
+            <div class="user-icon">K</div>
+            <span style="font-size:14px">Karan Sharma</span>
+        </div>
+        <div class="rating-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span style="color:#5f6368; margin-left:8px; font-size:12px">February 12, 2026</span>
+        </div>
+        <p style="font-size:14px; color:#444">Sabse fast result isi app par milta hai. Customer support bhi bahut accha hai. Highly recommended to all brothers.</p>
+    </div>
+
+    <div class="review-row">
+        <div class="user-meta">
+            <div class="user-icon" style="background:#fce8e6; color:#d93025">V</div>
+            <span style="font-size:14px">Vikram Singh</span>
+        </div>
+        <div class="rating-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span style="color:#5f6368; margin-left:8px; font-size:12px">January 25, 2026</span>
+        </div>
+        <p style="font-size:14px; color:#444">Genuine app for matka players. User interface is very smooth and loading speed is amazing.</p>
     </div>
 </div>
 
 <footer>
-    <div class="nexgroww-credit">
-        Ads Managed by <br>
+    <div class="nexgrow-box">
         <a href="https://telegram.me/+TRlJl628l-FkMWE9" target="_blank">
-            <i class="fab fa-telegram"></i> NEXGROWW AGENCY
+            <i class="fab fa-telegram" style="font-size: 24px;"></i>
+            <span>Ads Managed by NEXGROWW AGENCY</span>
         </a>
     </div>
-    <div class="google-disclaimer">
-        Google Play and the Google Play logo are trademarks of Google LLC.<br>
-        &copy; 2026 Dream Digit Official
+    
+    <div class="copy-text">
+        Google Play and the Google Play logo are trademarks of Google LLC. All other trademarks are the property of their respective owners.
+    </div>
+    <div style="font-size: 11px; color: #9aa0a6;">
+        &copy; 2026 Dream Digit Matka Official
     </div>
 </footer>
 
