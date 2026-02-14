@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DREAM DIGIT MATKA - Google Play Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --gp-green: #01875f;
+            --text-dark: #202124;
+            --text-light: #5f6368;
+            --border-color: #dadce0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        /* Navbar */
+        header {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+
+        .google-play-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* App Hero Section */
+        .app-hero {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .app-logo-box {
+            width: 120px;
+            height: 120px;
+            border-radius: 22%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #f8f9fa;
+        }
+
+        .app-logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-details h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 500;
+            color: #202124;
+        }
+
+        .dev-name {
+            color: var(--gp-green);
+            font-size: 16px;
+            font-weight: 500;
+            margin: 4px 0;
+        }
+
+        .tags {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* Stats */
+        .app-stats {
+            display: flex;
+            margin: 25px 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .stat-card {
+            padding: 0 20px;
+            border-right: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .stat-card:last-child { border: none; }
+
+        .stat-value {
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Install Button */
+        .install-btn {
+            background-color: var(--gp-green);
+            color: white;
+            padding: 12px 0;
+            width: 100%;
+            max-width: 350px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            display: block;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .install-btn:hover {
+            background-color: #00704f;
+        }
+
+        /* Reviews */
+        .review-section { margin-top: 40px; }
+        .review-row { padding: 16px 0; border-top: 1px solid #f1f1f1; }
+        .user-info { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+        .user-avatar { width: 32px; height: 32px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+        .stars { color: var(--gp-green); font-size: 10px; margin-bottom: 4px; }
+
+        /* Footer Custom Credit */
+        footer {
+            padding: 50px 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .nexgroww-credit {
+            font-size: 14px;
+            color: #5f6368;
+            margin-bottom: 10px;
+        }
+
+        .nexgroww-credit a {
+            color: #0088cc; /* Telegram Blue */
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .nexgroww-credit a:hover {
+            text-decoration: underline;
+        }
+
+        .google-disclaimer {
+            font-size: 11px;
+            color: #9aa0a6;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .app-hero { gap: 16px; }
+            .app-logo-box { width: 84px; height: 84px; }
+            .app-details h1 { font-size: 24px; }
+            .install-btn { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="google-play-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" width="22" alt="Play Store">
+        Google Play
+    </div>
+</header>
+
+<div class="main-container">
+    <div class="app-hero">
+        <div class="app-logo-box">
+            <img src="https://gogamex.fun/wp-content/uploads/2026/02/logo-8.png" alt="Dream Digit Logo">
+        </div>
+        <div class="app-details">
+            <h1>DREAM DIGIT MATKA</h1>
+            <div class="dev-name">Dream Digit Official</div>
+            <div class="tags">Contains ads · In-app purchases</div>
+        </div>
+    </div>
+
+    <div class="app-stats">
+        <div class="stat-card">
+            <div class="stat-value">4.8 <i class="fas fa-star" style="font-size: 9px;"></i></div>
+            <div class="stat-label">24K reviews</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">1M+</div>
+            <div class="stat-label">Downloads</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value"><i class="fas fa-shield-alt"></i></div>
+            <div class="stat-label">Verified</div>
+        </div>
+    </div>
+
+    <a href="https://app.dreammdigit.com/apk/v2/skbApp.apk" class="install-btn">Install</a>
+
+    <div style="margin-top: 40px;">
+        <h3 style="font-weight: 500; font-size: 18px;">About this app</h3>
+        <p style="color: var(--text-light); font-size: 14px; line-height: 1.6;">
+            India's most trusted and fastest Matka result app. Dream Digit provides you with the best gaming experience, 24/7 customer support, and instant withdrawal facilities.
+        </p>
+    </div>
+
+    <div class="review-section">
+        <h3 style="font-weight: 500; font-size: 18px;">Ratings and reviews</h3>
+        
+        <div class="review-row">
+            <div class="user-info">
+                <div class="user-avatar" style="background: #673ab7;">A</div>
+                <span style="font-size: 14px;">Arjun Mehta</span>
+            </div>
+            <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p style="font-size: 14px; color: #444; margin: 0;">Super fast results and very clean UI. Loved it!</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="nexgroww-credit">
+        Ads Managed by <br>
+        <a href="https://telegram.me/+TRlJl628l-FkMWE9" target="_blank">
+            <i class="fab fa-telegram"></i> NEXGROWW AGENCY
+        </a>
+    </div>
+    <div class="google-disclaimer">
+        Google Play and the Google Play logo are trademarks of Google LLC.<br>
+        &copy; 2026 Dream Digit Official
+    </div>
+</footer>
+
+</body>
+</html>
