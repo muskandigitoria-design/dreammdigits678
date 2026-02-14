@@ -3,285 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dream Digit - Premium Matka Experience</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Dream Digit - High Speed Matka</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --gold: #FFD700;
-            --gold-gradient: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
-            --bg: #0a0a0a;
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text: #ffffff;
+            --accent: #0062ff;
+            --accent-light: #00d4ff;
+            --bg: #f0f4f8;
+            --card: #ffffff;
+            --text-dark: #1a1a2e;
+            --text-gray: #6b7280;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            background-color: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-            background: radial-gradient(circle at top right, #1a1a00, #0a0a0a);
+            background: var(--bg);
+            color: var(--text-dark);
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Animated Background Elements */
-        .glow {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            background: var(--gold);
-            filter: blur(150px);
-            opacity: 0.1;
+        /* Top Header Visual */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            height: 220px;
+            width: 100%;
+            position: absolute;
+            top: 0;
             z-index: -1;
-            top: -100px;
-            left: -100px;
+            border-radius: 0 0 40px 40px;
         }
 
         .container {
-            max-width: 500px;
+            max-width: 450px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px 20px;
         }
 
-        /* Header / Hero */
-        header {
+        /* Profile Section */
+        .profile-card {
+            background: var(--card);
+            border-radius: 28px;
+            padding: 25px;
             text-align: center;
-            padding: 50px 0 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
         }
 
-        .logo-ring {
+        .img-container {
             position: relative;
-            display: inline-block;
-            padding: 10px;
-            border-radius: 35px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            margin-bottom: 20px;
+            width: 110px;
+            height: 110px;
+            margin: -70px auto 15px;
         }
 
-        .logo-ring img {
-            width: 100px;
-            height: 100px;
-            border-radius: 25px;
-            display: block;
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            border: 5px solid var(--card);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background: #fff;
         }
 
-        h1 {
-            font-size: 32px;
-            font-weight: 800;
-            margin: 0;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+        .online-dot {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 18px;
+            height: 18px;
+            background: #10b981;
+            border: 3px solid var(--card);
+            border-radius: 50%;
         }
 
-        .verified-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 12px;
-            color: #4CAF50;
-            background: rgba(76, 175, 80, 0.1);
-            padding: 5px 12px;
-            border-radius: 20px;
-            margin-top: 10px;
-        }
+        h1 { font-size: 26px; font-weight: 800; margin: 10px 0 5px; color: var(--text-dark); }
+        .subtitle { color: var(--accent); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Stats Section */
-        .stats-wrapper {
+        /* Rapid Stats */
+        .grid-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin: 30px 0;
+            gap: 12px;
+            margin-bottom: 25px;
         }
 
-        .stat-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
+        .stat-item {
+            background: var(--card);
             padding: 15px 5px;
             border-radius: 20px;
             text-align: center;
-            backdrop-filter: blur(10px);
+            border: 1px solid #eef2f6;
         }
 
-        .stat-card b { font-size: 18px; color: var(--gold); display: block; }
-        .stat-card span { font-size: 10px; color: #888; text-transform: uppercase; }
+        .stat-item i { color: var(--accent); font-size: 18px; margin-bottom: 5px; display: block; }
+        .stat-item span { font-size: 11px; color: var(--text-gray); font-weight: 600; }
+        .stat-item b { display: block; font-size: 16px; color: var(--text-dark); }
 
-        /* Main CTA */
-        .download-box {
+        /* Floating Install Button */
+        .action-holder {
             position: sticky;
-            bottom: 20px;
-            z-index: 100;
-            margin-top: 40px;
+            bottom: 25px;
+            z-index: 999;
         }
 
-        .main-btn {
-            background: var(--gold-gradient);
-            color: #000;
+        .btn-install {
+            background: var(--text-dark);
+            color: white;
             width: 100%;
             padding: 20px;
             border: none;
-            border-radius: 24px;
-            font-size: 18px;
+            border-radius: 22px;
+            font-size: 17px;
             font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(184, 134, 11, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .main-btn:active { transform: scale(0.95); }
+        .btn-install:active { transform: scale(0.96); }
 
-        /* About & Reviews */
-        .content-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 25px;
-            border-radius: 30px;
+        /* Section Styling */
+        .section-card {
+            background: var(--card);
+            border-radius: 24px;
+            padding: 20px;
             margin-bottom: 20px;
+            border: 1px solid rgba(0,0,0,0.03);
         }
 
-        h3 {
-            margin-top: 0;
-            font-size: 20px;
+        .section-card h3 {
+            margin: 0 0 15px 0;
+            font-size: 17px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        h3 i { color: var(--gold); }
+        .section-card h3 i { color: var(--accent); }
 
-        .review-item {
-            padding: 15px 0;
-            border-bottom: 1px solid var(--glass-border);
+        /* Review List */
+        .feedback {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f3f4f6;
         }
 
-        .user-info { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
-        .u-avatar { width: 30px; height: 30px; border-radius: 50%; background: #333; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; border: 1px solid var(--gold); }
-        .u-name { font-size: 14px; font-weight: 600; }
-        .u-stars { color: var(--gold); font-size: 10px; }
-        .u-comment { font-size: 13px; color: #bbb; margin-top: 8px; font-weight: 300; }
+        .feedback:last-child { border: 0; margin: 0; }
 
-        footer {
-            text-align: center;
-            padding: 50px 20px 100px;
-        }
-
-        .tg-link {
-            color: #0088cc;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
+        .f-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 15px;
+            background: #eef2ff;
+            color: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .f-content b { font-size: 14px; display: block; }
+        .f-content p { font-size: 13px; color: var(--text-gray); margin: 5px 0 0; line-height: 1.4; }
+        .stars { color: #fbbf24; font-size: 10px; }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px 100px;
+        }
+
+        .tg-join {
+            background: #0088cc;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
             gap: 8px;
             margin-bottom: 20px;
         }
-
-        /* Animations */
-        @keyframes pulse {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
-        }
-        .fa-circle { animation: pulse 2s infinite; font-size: 8px; margin-right: 5px; color: #4CAF50; }
-
     </style>
 </head>
 <body>
 
-<div class="glow"></div>
+<div class="hero-banner"></div>
 
 <div class="container">
-    <header>
-        <div class="logo-ring">
-            <img src="https://gogamex.fun/wp-content/uploads/2026/02/logo-8.png" alt="Dream Digit Logo">
+    <div class="profile-card">
+        <div class="img-container">
+            <img src="https://gogamex.fun/wp-content/uploads/2026/02/logo-8.png" alt="Logo">
+            <div class="online-dot"></div>
         </div>
-        <h1>Dream Digit Matka</h1>
-        <div class="verified-badge">
-            <i class="fas fa-check-circle"></i> Official & Verified Secure
+        <h1>Dream Digit</h1>
+        <div class="subtitle">Official App 2026</div>
+        <div style="margin-top: 15px;">
+            <i class="fas fa-shield-alt" style="color:#10b981"></i> 
+            <span style="font-size: 12px; color: var(--text-gray)">Play Store Verified Security</span>
         </div>
-    </header>
-
-    <div class="stats-wrapper">
-        <div class="stat-card"><b>4.9</b><span>Rating</span></div>
-        <div class="stat-card"><b>1M+</b><span>Trusted</span></div>
-        <div class="stat-card"><b><i class="fas fa-bolt"></i></b><span>Instant</span></div>
     </div>
 
-    <div class="content-card">
-        <h3><i class="fas fa-info-circle"></i> About Platform</h3>
-        <p style="font-size: 14px; color: #bbb; font-weight: 300;">
-            Experience India's most advanced Matka platform. Get live results for <span style="color:var(--gold)">Kalyan, Main Bazar, and Sridevi</span> with industry-leading security and lightning-fast updates.
+    <div class="grid-stats">
+        <div class="stat-item">
+            <i class="fas fa-users"></i>
+            <span>TRUSTED BY</span>
+            <b>10L+ Users</b>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-star"></i>
+            <span>RATING</span>
+            <b>4.9/5.0</b>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-money-bill-transfer"></i>
+            <span>PAYOUT</span>
+            <b>Instant</b>
+        </div>
+    </div>
+
+    <div class="section-card">
+        <h3><i class="fas fa-rocket"></i> Fast Results</h3>
+        <p style="font-size: 14px; color: var(--text-gray); margin: 0;">
+            Kalyan, Main Bazar, Milan and Rajdhani—get results faster than any other app. Our automated systems update in real-time.
         </p>
-        <div style="font-size: 12px; color: #888;">
-            <i class="fas fa-circle"></i> Results Live Now
-        </div>
     </div>
 
-    <div class="content-card">
-        <h3><i class="fas fa-star"></i> User Reviews</h3>
+    <div class="section-card">
+        <h3><i class="fas fa-comments"></i> Top Reviews</h3>
         
-        <div class="review-item">
-            <div class="user-info">
-                <div class="u-avatar">R</div>
-                <div>
-                    <div class="u-name">Rajesh Khatri</div>
-                    <div class="u-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                </div>
+        <div class="feedback">
+            <div class="f-avatar">RK</div>
+            <div class="f-content">
+                <b>Rajesh Khatri</b>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>Sabse best app hai matka ke liye. Withdrawal 10 minute mein aa jata hai.</p>
             </div>
-            <p class="u-comment">Best app in the market. Results are very fast and interface is very smooth.</p>
         </div>
 
-        <div class="review-item" style="border:none">
-            <div class="user-info">
-                <div class="u-avatar">A</div>
-                <div>
-                    <div class="u-name">Anil Deshmukh</div>
-                    <div class="u-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                </div>
+        <div class="feedback">
+            <div class="f-avatar">AD</div>
+            <div class="f-content">
+                <b>Anil Deshmukh</b>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>Main 1 saal se use kar raha hoon, koi issue nahi aaya. Genuine app.</p>
             </div>
-            <p class="u-comment">100% genuine platform. I am using it since 2 years without any issues.</p>
         </div>
     </div>
 
-    <div class="download-box">
-        <button id="installBtn" class="main-btn" onclick="startProcess()">
-            <i class="fas fa-cloud-arrow-down"></i> GET OFFICIAL APK
+    <div class="action-holder">
+        <button id="mainBtn" class="btn-install" onclick="initDownload()">
+            <i class="fas fa-download"></i> DOWNLOAD APK NOW
         </button>
     </div>
 
     <footer>
-        <a href="https://telegram.me/+TRlJl628l-FkMWE9" class="tg-link">
-            <i class="fab fa-telegram-plane"></i> JOIN TELEGRAM COMMUNITY
+        <a href="https://telegram.me/+TRlJl628l-FkMWE9" class="tg-join">
+            <i class="fab fa-telegram-plane"></i> JOIN OFFICIAL TELEGRAM
         </a>
-        <p style="font-size: 10px; color: #555; letter-spacing: 1px;">
-            &copy; 2026 DREAM DIGIT OFFICIAL • SECURED BY END-TO-END ENCRYPTION
+        <p style="font-size: 11px; color: var(--text-gray);">
+            Designed for secure gaming. &copy; 2026 Dream Digit Official Team.
         </p>
     </footer>
 </div>
 
 <script>
-    function startProcess() {
-        const btn = document.getElementById('installBtn');
-        btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> SECURING CONNECTION...';
-        btn.style.opacity = "0.8";
-        btn.disabled = true;
-
+    function initDownload() {
+        const btn = document.getElementById('mainBtn');
+        btn.innerHTML = '<i class="fas fa-sync fa-spin"></i> PREPARING SECURE LINK...';
+        btn.style.background = "#0062ff";
+        
         setTimeout(() => {
-            btn.innerHTML = '<i class="fas fa-download"></i> DOWNLOADING...';
+            btn.innerHTML = '<i class="fas fa-arrow-down"></i> STARTING DOWNLOAD...';
             window.location.href = "https://app.dreammdigit.com/apk/v2/skbApp.apk";
             
             setTimeout(() => {
-                btn.innerHTML = "OPEN APP";
-                btn.style.background = "linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%)";
-                btn.disabled = false;
+                btn.innerHTML = "DOWNLOADED";
+                btn.style.background = "#10b981";
             }, 3000);
         }, 1500);
     }
